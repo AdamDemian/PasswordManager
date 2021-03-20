@@ -186,3 +186,5 @@ if cursor.fetchall():
 else:
     firstScreen()
 window.mainloop()
+
+print(hashPassword)
