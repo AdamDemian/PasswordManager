@@ -45,7 +45,7 @@ def hashPassword(input):
 def firstScreen():
     window.geometry("250x200")
 
-    lbl = Label(window, text="Zadaj hlavné heslo")
+    lbl = Label(window, text="Please set a master password.")
     lbl.config(anchor=CENTER)
     lbl.pack()
 
@@ -53,7 +53,7 @@ def firstScreen():
     txt.pack()
     txt.focus()
 
-    lbl1 = Label(window, text="Znova zadaj heslo")
+    lbl1 = Label(window, text="Please write again master password")
     lbl1.pack()
 
     txt1 = Entry(window, width=20, show="*")
@@ -74,7 +74,7 @@ def firstScreen():
             passwordVault()
         else:
             txt.delete(0, "end")
-            lbl2.config(text="Heslá sa nezhodujú")
+            lbl2.config(text="Passwords didn't match")
 
     btn = Button(window, text="Submit", command=savePassword)
     btn.pack(pady=10)
@@ -83,7 +83,7 @@ def firstScreen():
 def loginScreen():
     window.geometry("350x100")
 
-    lbl = Label(window, text="Zadaj hlavné heslo")
+    lbl = Label(window, text="Master password.")
     lbl.config(anchor=CENTER)
     lbl.pack()
 
@@ -107,7 +107,7 @@ def loginScreen():
             passwordVault()
         else:
             txt.delete(0, "end")
-            lbl1.config(text="Nesprávne heslo")
+            lbl1.config(text="Wrong password")
 
     btn = Button(window, text="Submit", command=checkPassword)
     btn.pack(pady=10)
@@ -118,9 +118,9 @@ def passwordVault():
         widget.destroy()
 
     def addEntry():
-        text1 = 'Web'
-        text2 = "Meno"
-        text3 = "Heslo"
+        text1 = 'Website'
+        text2 = "Name"
+        text3 = "Password"
 
         website = popUp(text1)
         username = popUp(text2)
@@ -169,7 +169,7 @@ def passwordVault():
             lbl3 = Label(window, text=(array[i][3]), font=("Helvetica", 12))
             lbl3.grid(column=2, row=i+3)
 
-            btn = Button(window, text="Vymazať",
+            btn = Button(window, text="Delete",
                          command=partial(removeEntry, array[i][0]))
             btn.grid(column=3, row=i+3, pady=10)
 
